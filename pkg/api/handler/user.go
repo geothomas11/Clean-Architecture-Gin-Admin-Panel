@@ -56,18 +56,18 @@ func (u *UserHandler) HandlerUserSignup(c *gin.Context) {
 
 			fmt.Println(err)
 			c.HTML(http.StatusOK, "signup.html", gin.H{
-				"Error": "Email",
+				"Error": "Email already used",
 			})
 
 		}
 		helper.SetToken(TokenData, c)
-		c.Redirect(http.StatusFound, "/user/login")
+		c.Redirect(http.StatusFound, "/user/")
 		return
 
 	}
 }
 
-// get login
+// Get Login
 func (u *UserHandler) HandlerGetLogin(c *gin.Context) {
 
 	_, TokenExist := helper.CheckCookie(c)
@@ -78,12 +78,11 @@ func (u *UserHandler) HandlerGetLogin(c *gin.Context) {
 	}
 }
 
-// post login
+// Post Login
 func (u *UserHandler) HandlerPostLogin(c *gin.Context) {
 
 	_, TokenExist := helper.CheckCookie(c)
 	if TokenExist {
-
 		c.Redirect(http.StatusFound, "/user/")
 	} else {
 		err := c.Request.ParseForm()
@@ -97,19 +96,13 @@ func (u *UserHandler) HandlerPostLogin(c *gin.Context) {
 
 		TokenData := models.GenerateToken{Email: email}
 
-		err = u.userUseCase.UseUserLogin(LoginData)
-		if err != nil {
-
-			fmt.Println(err)
-			c.HTML(http.StatusOK, "login.html", gin.H{
-				"Error": " ",
-			})
-
+		error := u.userUseCase.UseUserLogin(LoginData)
+		if error != nil {
+			c.HTML(http.StatusOK, "login.html", error)
+		} else {
+			helper.SetToken(TokenData, c)
+			c.Redirect(http.StatusFound, "/user/")
 		}
-		helper.SetToken(TokenData, c)
-		c.Redirect(http.StatusFound, "/user/")
-		return
-
 	}
 }
 

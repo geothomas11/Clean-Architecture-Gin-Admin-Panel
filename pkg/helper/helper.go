@@ -24,7 +24,7 @@ func CheckCookie(c *gin.Context) (string, bool) {
 	tokenString, err := c.Cookie("token")
 	if err != nil {
 
-		fmt.Println("cookie not fount")
+		fmt.Println("cookie not found")
 		return "", false
 	}
 

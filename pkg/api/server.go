@@ -28,6 +28,6 @@ func NewServerHttp(User *handler.UserHandler, admin *handler.AdminHandler) *Serv
 }
 
 func (sh *ServerHTTP) Start() {
-	sh.engin.Run(":8080")
+	sh.engin.Run(":2255")
 
 }

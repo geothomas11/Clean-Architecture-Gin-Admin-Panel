@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/static/mail.css">
 </head>
 
-<body>
+<body style="background-image: url(/static/img/New\ login.jpg);">
   <img class="signup">
   <section class="vh-100">
     <div class="container mt-5 py-5 h-100 shadow-lg p-3">
@@ -16,7 +16,7 @@
             <div class="card-body p-5 text-center">
   
               <h1 class="mb-5 display-6"> User signup</h1>
-              <h4>{{.}}</h4>
+              <h4>{{.Error}}</h4>
               <form action="/user/signup" method="POST">
               <div class="form-outline mb-4">
                 <input name="name" type="text" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Name" required />

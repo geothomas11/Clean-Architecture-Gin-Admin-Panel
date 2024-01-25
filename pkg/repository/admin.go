@@ -6,8 +6,6 @@ import (
 	interfaces "sample/pkg/repository/interface"
 	"sample/pkg/utils/models"
 
-	// "github.com/gin-contrib/sessions/gorm"
-	// 	"github.com/gin-contrib/sessions/gorm"
 	"gorm.io/gorm"
 )
 
@@ -50,7 +48,7 @@ func (c *AdminDatabase) SaveuserData(userData models.UserDetails) error {
 
 	if name != "" {
 		fmt.Println("Already Account exists from email ")
-		return errors.New("Email contain a account")
+		return errors.New("email contain a account")
 	} else {
 		query := `INSERT INTO Users(name,email,phone,password) VALUES($1,$2,$3,$4)`
 		result := c.db.Exec(query, userData.Name, userData.Email, userData.Phone, userData.Password)
@@ -109,6 +107,6 @@ func (c *AdminDatabase) SingleUserData(UserMai models.UserMail) models.UserData 
 
 func (c *AdminDatabase) UserEdit(EditUser models.UserData) {
 
-	query := "UPDATE users SET name=?, phone=?,WHERE email=?"
+	query := "UPDATE users SET name=?, phone=? WHERE email=?"
 	c.db.Exec(query, EditUser.Name, EditUser.Phone, EditUser.Email)
 }

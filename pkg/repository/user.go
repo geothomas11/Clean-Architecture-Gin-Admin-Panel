@@ -47,19 +47,19 @@ func (c *UserDataBase) SaveuserData(userData models.UserDetails) error {
 //GET USER DATA
 
 func (c *UserDataBase) GetUserData(LoginData models.UserLoginDetails) (models.UserFeatchData, error) {
-	var UserFeatchDeatails models.UserFeatchData
-	query := `SELECT email,password FROM users WHERE email$1`
+	var UserFeatchDetails models.UserFeatchData
+	query := `SELECT email,password FROM users WHERE email=$1`
 
 	row := c.DB.Raw(query, LoginData.Email).Row()
-	err := row.Scan(&UserFeatchDeatails.Email, &UserFeatchDeatails.Password)
+	err := row.Scan(&UserFeatchDetails.Name, &UserFeatchDetails.Password)
 	if err != nil {
 		fmt.Println(err, "Error at featching data from database `GetUserData`")
 	}
-	if UserFeatchDeatails.Email == "" {
-		return UserFeatchDeatails, errors.New("no user")
+	if UserFeatchDetails.Name == "" {
+		return UserFeatchDetails, errors.New("no user")
 	}
-	UserFeatchDeatails.Email = LoginData.Email
-	return UserFeatchDeatails, nil
+	UserFeatchDetails.Email = LoginData.Email
+	return UserFeatchDetails, nil
 }
 func (c *UserDataBase) RepoGetUserName(UserId string) string {
 	var name string
@@ -69,7 +69,7 @@ func (c *UserDataBase) RepoGetUserName(UserId string) string {
 	if err != nil {
 		fmt.Println(err, "Error at featchiong data from databse `GetUserData`")
 	}
-	fmt.Println(name, "----------")
+	fmt.Println(name, "--------")
 	return name
 
 }

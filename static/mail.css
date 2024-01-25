@@ -1,4 +1,5 @@
-body{/* .login{
+body{
+/* .login{
     background-image: url("/static/img/LOGIN.jpg");
 }
 .signup{
@@ -16,8 +17,7 @@ body{/* .login{
 .adminLogin{
     background-image: url("/static/img/ADMIN.jpg");
 }
-.admin{background-image: url("/static/img/ADMIN.jpg");
-} */
-
-background-color: aqua;
+.admin{background-image: url("/static/img/ADMIN.jpg"); */
+/* } */
+background-color: beige;
 }

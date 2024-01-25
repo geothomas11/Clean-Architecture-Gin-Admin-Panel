@@ -7,7 +7,6 @@ import (
 	"sample/pkg/utils/models"
 
 	"gorm.io/gorm"
-	// "github.com/gin-contrib/sessions/gorm"
 )
 
 type UserDataBase struct {

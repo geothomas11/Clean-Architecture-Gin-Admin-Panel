@@ -1,23 +1,4 @@
 body{
-/* .login{
-    background-image: url("/static/img/LOGIN.jpg");
-}
-.signup{
-    background-image: url("/static/img/LOGIN.jpg");
-}
-.Index{
-    background-image: url("/static/img/ssd.jpg");
-}
-.edituser{
-    background-image: url("/static/img/LOGIN.jpg");
-}
-.createUser{
-    background-image: url("/static/img/LOGIN.jpg");
-}
-.adminLogin{
-    background-image: url("/static/img/ADMIN.jpg");
-}
-.admin{background-image: url("/static/img/ADMIN.jpg"); */
-/* } */
-background-color: beige;
+
+background-color: rgb(248, 17, 0);
 }

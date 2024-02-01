@@ -1,1 +1,1 @@
-# Clean-Architecture-Gin-Admin-Panel
+# Clean-Architecture-Gin-Admin

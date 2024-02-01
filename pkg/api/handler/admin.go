@@ -6,7 +6,6 @@ import (
 	"sample/pkg/helper"
 	interfaceUsecase "sample/pkg/usecase/interface"
 
-	// interfaces "sample/pkg/repository/interface"
 	"sample/pkg/utils/models"
 
 	"github.com/gin-gonic/gin"

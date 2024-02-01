@@ -4,7 +4,6 @@ import (
 	"log"
 	"sample/pkg/config"
 	"sample/pkg/di_in"
-	// "sample/pkg/di_in"
 )
 
 func main() {

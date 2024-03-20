@@ -36,7 +36,7 @@ func (c *userUseCase) UseUserSignup(userData models.UserDetails) error {
 			return exist
 		}
 	} else {
-		return errors.New("Confirm password is not match")
+		return errors.New("confirm password is not match")
 	}
 	return nil
 }
@@ -46,11 +46,11 @@ func (c *userUseCase) UseUserSignup(userData models.UserDetails) error {
 func (c *userUseCase) UseUserLogin(LoginData models.UserLoginDetails) error {
 	LoginFeatchData, err := c.userRepo.GetUserData(LoginData)
 	if err != nil {
-		return errors.New("No user Exist")
+		return errors.New("user not exist")
 	} else {
 		err := bcrypt.CompareHashAndPassword([]byte(LoginFeatchData.Password), []byte(LoginData.Password))
 		if err != nil {
-			return errors.New("Password is not match")
+			return errors.New("password is not match")
 		} else {
 			return nil
 		}
